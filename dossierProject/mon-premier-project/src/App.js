@@ -1,22 +1,37 @@
-import logo from './logo.svg';
+import logo from './logo22.jpeg';
 import './App.css';
+
+function formatName(user){
+  return user.firstName+' '+user.lastName
+}
+
+const user1 = {
+  firstName: "Lina",
+  lastName : "Haque"
+}
+
+function workHard(play){
+  return play.morning+ ' '+play.evening
+}
+
+const play1 = {
+  morning: "first-step",
+  evening: "last-step"
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        {/* <h1>Bismillahir Rahmanir Rahim</h1> */}
+        <h1 id={user1.firstName}>Bonjour, {formatName(user1)}</h1>
+        <h3 >Hello, {workHard(play1)}</h3>
+        <h2>React Learn From Class</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lina is Good Girl
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
       </header>
     </div>
   );
