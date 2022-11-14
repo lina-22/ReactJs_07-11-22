@@ -1,22 +1,29 @@
+import React from "react";
 import ProductListItem from "./ProductListItem";
 
 export default function ProductTable(props) {
     console.log(props.products);
     return (
+        // fragment
         <>
-            <h2>Liste des Produits</h2>
+            <h2>Liste des produits</h2>
             <table>
-
-                <tr>
-                    <th>ID</th>
-                    <th>NOM</th>
-                    <th>ACTIONS</th>
-                </tr>
-                {props.products.map((prod) => {
-                    return <ProductListItem
-                        Key={prod.id.toString}
-                        product={prod} />
-                })}
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOM</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.products.map((prod) => {
+                        return <ProductListItem
+                            key={prod.id.toString()}
+                            product={prod}
+                            deleteProduct={props.deleteProduct}
+                        />
+                    })}
+                </tbody>
             </table>
         </>
     )

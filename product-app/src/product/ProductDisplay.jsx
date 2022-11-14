@@ -2,6 +2,7 @@ import React from "react";
 import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 
+
 export default class ProductDisplay extends React.Component {
     constructor(props) {
         super(props)
@@ -10,23 +11,18 @@ export default class ProductDisplay extends React.Component {
             products: [
                 {
                     id: 1,
-                    name: "Product 1"
-
+                    name: "produit 1"
                 },
                 {
                     id: 2,
-                    name: "Product 2"
-
+                    name: "produit 2"
                 },
                 {
                     id: 3,
-                    name: "Product 3"
-
+                    name: "produit 3"
                 },
             ]
         }
-
-
         //on lie this à notre méthode
         this.handleShowFormBtn = this.handleShowFormBtn.bind(this)
     }
@@ -34,6 +30,13 @@ export default class ProductDisplay extends React.Component {
         this.setState((prevState) => {
             return {
                 showFrom: !prevState.showFrom
+            }
+        })
+    }
+    deleteProduct = (id) => {
+        this.setState((prevState) => {
+            return {
+                products: prevState.products.filter((prod) => prod.id !== id)
             }
         })
     }
@@ -47,7 +50,9 @@ export default class ProductDisplay extends React.Component {
                 {this.state.showFrom ?
                     <ProductForm />
                     :
-                    <ProductTable products={this.state.products} />}
+                    <ProductTable
+                        products={this.state.products}
+                        deleteProduct={this.deleteProduct} />}
             </div>
         )
     }
