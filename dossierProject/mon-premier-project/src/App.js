@@ -6,6 +6,7 @@ import Welcome from './Welcome';
 import RequireAuth from './RequireAuth';
 import Clock from './Clock';
 import Toggle from './Toggle';
+import NumberList from './NumberList';
 
 const user1 = {
   firstName: "Lina",
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Toggle/>
+       <NumberList numbers={[1,2,3,4,5]}/>
        <Clock message ='horlog'/>
 
         <Clock message='horlog'/> 
