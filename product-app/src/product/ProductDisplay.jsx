@@ -8,24 +8,31 @@ export default class ProductDisplay extends React.Component {
         super(props)
         this.state = {
             showFrom: false,
-            products: [
-                {
-                    id: 1,
-                    name: "produit 1"
-                },
-                {
-                    id: 2,
-                    name: "produit 2"
-                },
-                {
-                    id: 3,
-                    name: "produit 3"
-                },
-            ]
+            products: []
         }
         //on lie this à notre méthode
         this.handleShowFormBtn = this.handleShowFormBtn.bind(this)
     }
+    componentDidMount() {
+        fetch("http://localhost:3000/data.json").then((res) => {
+            console.log(res);
+            //convertir le crops de la réponse en object js
+            return res.json();// promesse
+        }).then((tab) => {
+            this.setState({
+                products: tab
+            })
+        })
+    }
+
+    // componentDidMount = async () => {
+    //     const res = await fetch("http://localhost:3000/data.json");
+    //     const tab = await res.json();
+    //     this.setState({
+    //         products: tab
+    //     })
+    // }
+
     handleShowFormBtn = function () {
         this.setState((prevState) => {
             return {
