@@ -11,10 +11,11 @@ export default function ProductListItem(props) {
             <td>{prod.id}</td>
             <td>{prod.name}</td>
             <td>
-                <button
+                <button className="btn btn-danger"
                     onClick={() => props.deleteProduct(prod.id)}>Supprimer</button>
                 {/* <button onClick={()=>deleteProduct(prod.id)}>Supprimer</button> */}
-                <button>Modifier</button>
+                <button className="btn btn-secondary">Modifier</button>
+                <button className="btn btn-primary">Modifier</button>
             </td>
         </tr>
     )

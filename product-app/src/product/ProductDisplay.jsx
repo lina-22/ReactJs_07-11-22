@@ -2,7 +2,6 @@ import React from "react";
 import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 
-
 export default class ProductDisplay extends React.Component {
     constructor(props) {
         super(props)
@@ -16,15 +15,14 @@ export default class ProductDisplay extends React.Component {
     componentDidMount() {
         fetch("http://localhost:3000/data.json").then((res) => {
             console.log(res);
-            //convertir le crops de la réponse en object js
-            return res.json();// promesse
+            //convertir le corps de la réponse en objet JS
+            return res.json();//renvoie promesse
         }).then((tab) => {
             this.setState({
                 products: tab
             })
         })
     }
-
     // componentDidMount = async () => {
     //     const res = await fetch("http://localhost:3000/data.json");
     //     const tab = await res.json();

@@ -7,7 +7,7 @@ export default function ProductTable(props) {
         // fragment
         <>
             <h2>Liste des produits</h2>
-            <table>
+            <table className="table table">
                 <thead>
                     <tr>
                         <th>ID</th>
