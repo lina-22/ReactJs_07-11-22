@@ -5,11 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import de bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {BrowserRouter, Routes} from 'react-router-dom';
+import ProductTable from './product/ProductTable';
+import ProductForm from './product/ProductForm';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <BrowserRouter>
+    <Routes>
+      {/* <Routes path='/'elementv= {<ProductDisplay/>}/> */}
+      <Routes path='/' element= {<ProductTable products={[]}/>}/>
+      <Routes path='/product/add' element= {<ProductForm/>}/>
+      <Routes path='/product/update/{id}' element= {<ProductForm/>}/>
+    </Routes> 
+     <App />
+   </BrowserRouter>
   </React.StrictMode>
 );
 
@@ -17,3 +27,6 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+// npm aduit fix --force  
